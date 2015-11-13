@@ -1,13 +1,20 @@
 import {Server} from 'hapi';
-const server = new Server();
+const server = new Server(
+    {connections: {
+        routes: {
+            cors: true
+        }
+    }
+});
 
-server.connection({port: parseInt(process.env.PORT, 10) || 5000});
+server.connection({
+    port: parseInt(process.env.PORT, 10) || 5000
+});
 let books = [{id: 1, author: 'Stephen King', title: 'Shining'}];
 
 server.route({
     method: 'GET',
     path: '/books',
-    cors: true,
     handler: (request, reply) => {
         return reply(books);
     }
@@ -16,7 +23,6 @@ server.route({
 server.route({
     method: 'GET',
     path: '/books/{id}',
-    cors: true,
     handler: (request, reply) => {
         return reply(books.find((book) => book.id = request.params.id));
     }
@@ -25,7 +31,6 @@ server.route({
 server.route({
     method: 'PUT',
     path: '/books/{id}',
-    cors: true,
     handler: (request, reply) => {
         const index = books.findIndex((book) => book.id === request.params.id);
         const book = JSON.parse(request.payload);
@@ -37,7 +42,6 @@ server.route({
 server.route({
     method: 'POST',
     path: '/books',
-    cors: true,
     handler: (request, reply) => {
         const nextId = books.reduce((prev, current) => current.id > prev ? current.id: prev, 0) + 1;
         const book = JSON.parse(request.payload);
@@ -50,7 +54,6 @@ server.route({
 server.route({
     method: 'DELETE',
     path: '/books/{id}',
-    cors: true,
     handler: (request, reply) => {
         const indexToRemove = books.findIndex((book) => book.id === request.params.id);
         books.splice(indexToRemove, 1);
