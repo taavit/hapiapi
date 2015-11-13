@@ -1,7 +1,7 @@
 import {Server} from 'hapi';
 const server = new Server();
 
-server.connection({port: parseInt(process.env.port, 10) || 5000});
+server.connection({port: parseInt(process.env.PORT, 10) || 5000});
 let books = [{id: 1, author: 'Stephen King', title: 'Shining'}];
 
 server.route({
