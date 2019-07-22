@@ -12,22 +12,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/hapi": "^18.3.1",
     "babel-cli": "^6.1.18",
     "babel-core": "^6.1.19",
     "babel-preset-es2016-node5": "^1.1.2",
-    "boom": "^3.0.0",
-    "hapi": "^11.1.0",
-    "pg": "^4.4.3",
+    "boom": "^7.3",
+    "pg": "^7.11",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^3.13.0"
-  },
-  "engines": {
-    "node": "5.0.0"
+    "sequelize": "^5.10"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "eslint": "^1.9.0",
-    "mocha": "^2.3.3"
+    "chai": "^4.2.0",
+    "eslint": "^6.1.0",
+    "mocha": "^6.2"
   },
   "babel": {
     "presets": [
