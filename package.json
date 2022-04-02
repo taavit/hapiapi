@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^18.3.1",
+    "@hapi/hapi": "^19.1.1",
     "babel-cli": "^6.1.18",
     "babel-core": "^6.1.19",
     "babel-preset-es2016-node5": "^1.1.2",
